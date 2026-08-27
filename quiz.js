@@ -289,6 +289,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const scores = tally();
-    showResult(topGroup(scores), scores);
+    const group = topGroup(scores);
+    if (typeof gtag === "function") {
+      gtag("event", "test_complete", { result_group: group });
+    }
+    showResult(group, scores);
   });
 });
