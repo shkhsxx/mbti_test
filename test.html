@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>내 공부 유형 자가진단 | MBTI 공부법 연구소</title>
+<meta name="description" content="공부 습관 10문항으로 알아보는 나의 학습 성향 그룹(NT·NF·SJ·SP) 자가진단. 결과에 맞는 공부법 페이지로 바로 이동해보세요." />
+<link rel="stylesheet" href="base.css" />
+<link rel="stylesheet" href="quiz.css" />
+<script src="script.js" defer></script>
+<script src="quiz.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">MBTI <span>공부법</span> 연구소</a>
+    <button class="nav-toggle" aria-label="메뉴 열기">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">홈</a>
+      <a href="nt.html">NT 분석가</a>
+      <a href="nf.html">NF 외교관</a>
+      <a href="sj.html">SJ 관리자</a>
+      <a href="sp.html">SP 탐험가</a>
+      <a href="test.html" class="active">자가진단</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" style="padding-bottom:24px;">
+    <div class="container">
+      <span class="eyebrow">공부 습관 자가진단</span>
+      <h1>나는 어떤 유형으로 공부할 때<br />가장 효율이 날까?</h1>
+      <p>
+        10개의 질문에 솔직하게 답해보세요. 가장 많이 선택한 성향
+        그룹이 나에게 맞는 공부법 그룹으로 안내됩니다.
+      </p>
+    </div>
+  </section>
+
+  <section id="quiz-section" class="section" style="padding-top:0;">
+    <div class="container" style="max-width:680px;">
+
+      <div class="progress-bar">
+        <div id="progress-fill" class="fill"></div>
+      </div>
+
+      <form id="quiz-form">
+        <!-- 질문은 quiz.js에서 자동 생성됩니다 -->
+        <div class="test-actions">
+          <button type="submit" class="btn btn-primary btn-block">결과 확인하기</button>
+          <p id="hint" class="form-hint"></p>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <section class="container" style="max-width:680px; padding-bottom:64px;">
+    <div id="result-box" class="result-box">
+      <span id="result-tag" class="eyebrow">TYPE</span>
+      <h2 id="result-title">결과</h2>
+      <p id="result-desc" class="result-desc"></p>
+      <div id="result-scores" class="result-scores"></div>
+      <div class="result-actions">
+        <a id="go-group-btn" class="btn btn-primary" href="index.html">공부법 페이지로 이동</a>
+        <button id="share-btn" type="button" class="btn btn-outline">친구에게 공유하기</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>MBTI 공부법 연구소 · 이 사이트의 진단은 학습 성향 참고용이며, 공식 심리 검사가 아닙니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>

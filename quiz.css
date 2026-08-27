@@ -1,0 +1,134 @@
+/* ===== MBTI 공부법 연구소 - 자가진단 페이지 스타일 (test.html) ===== */
+
+.progress-bar {
+  height: 8px;
+  background: var(--cream-soft);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+
+.progress-bar .fill {
+  height: 100%;
+  width: 0%;
+  background: var(--purple);
+  transition: width 0.2s ease;
+}
+
+.question {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  margin-bottom: 18px;
+}
+
+.question p.q-text {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0 0 16px;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.option:hover {
+  border-color: var(--purple);
+}
+
+.option input {
+  accent-color: var(--purple);
+  width: 18px;
+  height: 18px;
+}
+
+.option.selected {
+  border-color: var(--purple);
+  background: var(--purple-soft);
+}
+
+.test-actions {
+  text-align: center;
+  padding: 20px 0 8px;
+}
+
+.form-hint {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  margin-top: 10px;
+}
+
+/* ---------- Result ---------- */
+
+.result-box {
+  display: none;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  box-shadow: var(--shadow);
+}
+
+.result-box.show {
+  display: block;
+}
+
+.result-box .eyebrow {
+  margin-bottom: 18px;
+}
+
+.result-box h2 {
+  font-size: 1.8rem;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.result-box p.result-desc {
+  color: var(--text-soft);
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+.result-scores {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.score-chip {
+  background: var(--cream-soft);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-soft);
+}
+
+.score-chip.top {
+  background: var(--purple);
+  color: #fff;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
