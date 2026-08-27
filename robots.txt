@@ -25,4 +25,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://mbti-test.vercel.app/sitemap.xml
+Sitemap: https://mbtitest-iota.vercel.app/sitemap.xml

@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mbti-test.vercel.app/</loc>
+    <loc>https://mbtitest-iota.vercel.app/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mbti-test.vercel.app/nt.html</loc>
+    <loc>https://mbtitest-iota.vercel.app/nt.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mbti-test.vercel.app/nf.html</loc>
+    <loc>https://mbtitest-iota.vercel.app/nf.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mbti-test.vercel.app/sj.html</loc>
+    <loc>https://mbtitest-iota.vercel.app/sj.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mbti-test.vercel.app/sp.html</loc>
+    <loc>https://mbtitest-iota.vercel.app/sp.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mbti-test.vercel.app/test.html</loc>
+    <loc>https://mbtitest-iota.vercel.app/test.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
