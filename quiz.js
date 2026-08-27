@@ -124,72 +124,108 @@ const QUESTIONS = [
   },
 ];
 
-function renderQuiz() {
-  const form = document.getElementById("quiz-form");
-  if (!form) return;
+let currentIndex = 0;
+const answers = new Array(QUESTIONS.length).fill(null);
 
-  QUESTIONS.forEach((q, i) => {
-    const block = document.createElement("div");
-    block.className = "question";
+function renderQuestion() {
+  const wrap = document.getElementById("quiz-form");
+  if (!wrap) return;
+  wrap.innerHTML = "";
 
-    const p = document.createElement("p");
-    p.className = "q-text";
-    p.textContent = q.text;
-    block.appendChild(p);
+  const q = QUESTIONS[currentIndex];
+  const block = document.createElement("div");
+  block.className = "question";
 
-    const optWrap = document.createElement("div");
-    optWrap.className = "options";
+  const p = document.createElement("p");
+  p.className = "q-text";
+  p.textContent = q.text;
+  block.appendChild(p);
 
-    q.options.forEach((opt, j) => {
-      const label = document.createElement("label");
-      label.className = "option";
+  const optWrap = document.createElement("div");
+  optWrap.className = "options";
 
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = "q" + i;
-      input.value = opt.v;
-      input.required = true;
+  q.options.forEach((opt) => {
+    const label = document.createElement("label");
+    label.className =
+      "option" + (answers[currentIndex] === opt.v ? " selected" : "");
 
-      input.addEventListener("change", () => {
-        optWrap
-          .querySelectorAll(".option")
-          .forEach((el) => el.classList.remove("selected"));
-        label.classList.add("selected");
-        updateProgress();
-      });
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = "q" + currentIndex;
+    input.value = opt.v;
+    input.checked = answers[currentIndex] === opt.v;
 
-      const span = document.createElement("span");
-      span.textContent = opt.t;
-
-      label.appendChild(input);
-      label.appendChild(span);
-      optWrap.appendChild(label);
+    input.addEventListener("change", () => {
+      answers[currentIndex] = opt.v;
+      optWrap
+        .querySelectorAll(".option")
+        .forEach((el) => el.classList.remove("selected"));
+      label.classList.add("selected");
+      setTimeout(goNext, 280);
     });
 
-    block.appendChild(optWrap);
-    form.appendChild(block);
+    const span = document.createElement("span");
+    span.textContent = opt.t;
+
+    label.appendChild(input);
+    label.appendChild(span);
+    optWrap.appendChild(label);
   });
+
+  block.appendChild(optWrap);
+  wrap.appendChild(block);
+
+  updateProgress();
+  updatePrevButton();
 }
 
 function updateProgress() {
   const total = QUESTIONS.length;
-  const answered = new Set(
-    Array.from(document.querySelectorAll('#quiz-form input[type="radio"]:checked')).map(
-      (el) => el.name
-    )
-  ).size;
   const fill = document.getElementById("progress-fill");
-  if (fill) fill.style.width = Math.round((answered / total) * 100) + "%";
+  if (fill) fill.style.width = Math.round((currentIndex / total) * 100) + "%";
+  const label = document.getElementById("progress-label");
+  if (label) label.textContent = currentIndex + 1 + " / " + total;
 }
 
-function tally() {
+function updatePrevButton() {
+  const prevBtn = document.getElementById("prev-btn");
+  if (!prevBtn) return;
+  prevBtn.style.display = currentIndex > 0 ? "inline-flex" : "none";
+}
+
+function goNext() {
+  if (currentIndex < QUESTIONS.length - 1) {
+    currentIndex++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+}
+
+function goPrev() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    renderQuestion();
+  }
+}
+
+function finishQuiz() {
   const scores = { nt: 0, nf: 0, sj: 0, sp: 0 };
-  document
-    .querySelectorAll('#quiz-form input[type="radio"]:checked')
-    .forEach((el) => {
-      scores[el.value] += 1;
-    });
-  return scores;
+  answers.forEach((v) => {
+    if (v) scores[v] += 1;
+  });
+  const group = topGroup(scores);
+
+  if (typeof gtag === "function") {
+    gtag("event", "test_complete", { result_group: group });
+  }
+
+  const fill = document.getElementById("progress-fill");
+  if (fill) fill.style.width = "100%";
+  const label = document.getElementById("progress-label");
+  if (label) label.textContent = QUESTIONS.length + " / " + QUESTIONS.length;
+
+  showResult(group, scores);
 }
 
 function topGroup(scores) {
@@ -268,31 +304,10 @@ function initFromQuery() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderQuiz();
-
   if (initFromQuery()) return;
 
-  const form = document.getElementById("quiz-form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const total = QUESTIONS.length;
-    const answered = new Set(
-      Array.from(form.querySelectorAll('input[type="radio"]:checked')).map(
-        (el) => el.name
-      )
-    ).size;
+  renderQuestion();
 
-    if (answered < total) {
-      document.getElementById("hint").textContent =
-        "아직 답하지 않은 문항이 있어요. 모든 질문에 답해주세요!";
-      return;
-    }
-
-    const scores = tally();
-    const group = topGroup(scores);
-    if (typeof gtag === "function") {
-      gtag("event", "test_complete", { result_group: group });
-    }
-    showResult(group, scores);
-  });
+  const prevBtn = document.getElementById("prev-btn");
+  if (prevBtn) prevBtn.addEventListener("click", goPrev);
 });

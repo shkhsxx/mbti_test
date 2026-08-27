@@ -70,14 +70,15 @@
       <div class="progress-bar">
         <div id="progress-fill" class="fill"></div>
       </div>
+      <p id="progress-label" class="progress-label"></p>
 
-      <form id="quiz-form">
-        <!-- 질문은 quiz.js에서 자동 생성됩니다 -->
-        <div class="test-actions">
-          <button type="submit" class="btn btn-primary btn-block">결과 확인하기</button>
-          <p id="hint" class="form-hint"></p>
-        </div>
-      </form>
+      <div id="quiz-form">
+        <!-- 현재 질문 1개가 quiz.js에서 자동 생성됩니다 -->
+      </div>
+
+      <div class="test-actions">
+        <button id="prev-btn" type="button" class="btn btn-outline" style="display:none;">이전 문항</button>
+      </div>
 
     </div>
   </section>
