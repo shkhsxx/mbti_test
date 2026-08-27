@@ -1,0 +1,77 @@
+/* ===== MBTI 공부법 연구소 - 디자인 토큰 (라이트/다크 테마) =====
+   base.css보다 먼저 로드한다. data-theme 속성이 없으면 prefers-color-scheme을 따르고,
+   토글 버튼으로 명시적으로 선택하면 data-theme="light" / "dark"가 우선한다. */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css");
+
+:root {
+  --cream: #faf5ec;
+  --cream-soft: #f3ecdf;
+  --card: #fffdf8;
+  --header-bg: rgba(250, 245, 236, 0.9);
+  --purple: #7c5cfc;
+  --purple-dark: #5a3fd1;
+  --purple-soft: #ede7fb;
+  --text: #2b2621;
+  --text-soft: #6b6459;
+  --border: #e4dcc9;
+  --radius: 18px;
+  --shadow: 0 8px 24px rgba(90, 63, 209, 0.08);
+
+  --tag-nt-bg: #e7f0ff;
+  --tag-nt-text: #2f5fd6;
+  --tag-nf-bg: #eafaef;
+  --tag-nf-text: #22935a;
+  --tag-sj-bg: #fff2e3;
+  --tag-sj-text: #c9720f;
+  --tag-sp-bg: #ffe9ee;
+  --tag-sp-text: #d5406e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cream: #1c1a22;
+    --cream-soft: #262330;
+    --card: #262230;
+    --header-bg: rgba(28, 26, 34, 0.85);
+    --purple: #9b81ff;
+    --purple-dark: #c3b1ff;
+    --purple-soft: #362f4d;
+    --text: #f1ecfa;
+    --text-soft: #b6aec8;
+    --border: #3a3446;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+    --tag-nt-bg: #22304f;
+    --tag-nt-text: #9cbcff;
+    --tag-nf-bg: #1e3527;
+    --tag-nf-text: #7fdba3;
+    --tag-sj-bg: #3d2c15;
+    --tag-sj-text: #f2b263;
+    --tag-sp-bg: #3b1d27;
+    --tag-sp-text: #ff93b3;
+  }
+}
+
+:root[data-theme="dark"] {
+  --cream: #1c1a22;
+  --cream-soft: #262330;
+  --card: #262230;
+  --header-bg: rgba(28, 26, 34, 0.85);
+  --purple: #9b81ff;
+  --purple-dark: #c3b1ff;
+  --purple-soft: #362f4d;
+  --text: #f1ecfa;
+  --text-soft: #b6aec8;
+  --border: #3a3446;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  --tag-nt-bg: #22304f;
+  --tag-nt-text: #9cbcff;
+  --tag-nf-bg: #1e3527;
+  --tag-nf-text: #7fdba3;
+  --tag-sj-bg: #3d2c15;
+  --tag-sj-text: #f2b263;
+  --tag-sp-bg: #3b1d27;
+  --tag-sp-text: #ff93b3;
+}

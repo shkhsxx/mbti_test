@@ -1,20 +1,5 @@
-/* ===== MBTI 공부법 연구소 - 기본 스타일 (모든 페이지 공통) ===== */
-
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css");
-
-:root {
-  --cream: #faf5ec;
-  --cream-soft: #f3ecdf;
-  --card: #fffdf8;
-  --purple: #7c5cfc;
-  --purple-dark: #5a3fd1;
-  --purple-soft: #ede7fb;
-  --text: #2b2621;
-  --text-soft: #6b6459;
-  --border: #e4dcc9;
-  --radius: 18px;
-  --shadow: 0 8px 24px rgba(90, 63, 209, 0.08);
-}
+/* ===== MBTI 공부법 연구소 - 기본 스타일 (모든 페이지 공통) =====
+   디자인 토큰(색상 변수, 라이트/다크 테마)은 theme.css에서 관리한다. */
 
 * {
   box-sizing: border-box;
@@ -32,6 +17,7 @@ body {
   color: var(--text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 img {
@@ -55,9 +41,10 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(250, 245, 236, 0.9);
+  background: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .site-header .container {
@@ -65,6 +52,7 @@ a {
   align-items: center;
   justify-content: space-between;
   height: 68px;
+  gap: 12px;
 }
 
 .logo {
@@ -75,6 +63,37 @@ a {
 
 .logo span {
   color: var(--purple);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease, background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--purple);
+  transform: translateY(-1px);
 }
 
 .nav-toggle {
@@ -170,7 +189,7 @@ a {
 }
 
 .btn-outline {
-  background: #fff;
+  background: var(--card);
   color: var(--purple-dark);
   border: 1.5px solid var(--purple);
 }
@@ -206,10 +225,10 @@ a {
   max-width: 680px;
 }
 
-.tag-nt { background: #e7f0ff; color: #2f5fd6; }
-.tag-nf { background: #eafaef; color: #22935a; }
-.tag-sj { background: #fff2e3; color: #c9720f; }
-.tag-sp { background: #ffe9ee; color: #d5406e; }
+.tag-nt { background: var(--tag-nt-bg); color: var(--tag-nt-text); }
+.tag-nf { background: var(--tag-nf-bg); color: var(--tag-nf-text); }
+.tag-sj { background: var(--tag-sj-bg); color: var(--tag-sj-text); }
+.tag-sp { background: var(--tag-sp-bg); color: var(--tag-sp-text); }
 
 /* ---------- Footer ---------- */
 
